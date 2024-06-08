@@ -1,66 +1,109 @@
 <template>
-    <v-row align="center" justify="center" dense>
-      <v-col cols="12" md="6">
+  <v-sheet
+    class="mx-auto"
+    elevation="8"
+    max-width="800"
+  >
+    <v-slide-group
+      v-model="model"
+      class="pa-4"
+      selected-class="bg-success"
+      show-arrows
+    >
+      <v-slide-group-item
+        v-for="product in products"
+        :key="product"
+        v-slot="{ isSelected, toggle, selectedClass }"
+      >
         <v-card
-          append-icon="mdi-check"
-          class="mx-auto"
-          prepend-icon="mdi-account"
-          subtitle="prepend-icon and append-icon"
-          title="Icons"
+          :class="['ma-4', selectedClass]"
+          color="grey-lighten-1"
+          height="200"
+          width="100"
+          @click="toggle"
         >
-          <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
+        <v-img
+            :src="product.image"
+            height="50"
+            class="mt-2"
+            contain
+          ></v-img>
+        <v-card-text class="">
+          {{ product.name }}
+           <span class="description">{{ product.description }}</span> 
+          </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" 
+                icon="mdi mdi-cart-outline" ></v-btn>
+                <!-- @click="addToCart(product)" -->
+          </v-card-actions>
+          <div class="d-flex fill-height align-center justify-center">
+            <v-scale-transition>
+              
+              
+            </v-scale-transition>
+          </div>
         </v-card>
-      </v-col>
-  
-      <v-col cols="12" md="6">
-        <v-card
-          class="mx-auto"
-          subtitle="prepend and append"
-          title="Icons"
-        >
-          <template v-slot:prepend>
-            <v-icon color="primary" icon="mdi-account"></v-icon>
-          </template>
-          <template v-slot:append>
-            <v-icon color="success" icon="mdi-check"></v-icon>
-          </template>
-          <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
-        </v-card>
-      </v-col>
-  
-      <v-col cols="12" md="6">
-        <v-card
-          append-avatar="https://cdn.vuetifyjs.com/images/john.jpg"
-          class="mx-auto"
-          prepend-avatar="https://cdn.vuetifyjs.com/images/logos/v-alt.svg"
-          subtitle="prepend-avatar and append-avatar"
-          title="Avatars"
-        >
-          <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
-        </v-card>
-      </v-col>
-  
-      <v-col cols="12" md="6">
-        <v-card
-          class="mx-auto"
-          subtitle="prepend and append"
-          title="Avatars"
-        >
-          <template v-slot:prepend>
-            <v-avatar color="blue-darken-2">
-              <v-icon icon="mdi-alarm"></v-icon>
-            </v-avatar>
-          </template>
-          <template v-slot:append>
-            <v-avatar size="24">
-              <v-img
-                alt="John"
-                src="https://cdn.vuetifyjs.com/images/john.png"
-              ></v-img>
-            </v-avatar>
-          </template>
-          <v-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </template>
+      </v-slide-group-item>
+    </v-slide-group>
+  </v-sheet>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      model: null,
+      products: [
+        {
+          id: 1,
+          name: 'Product 1',
+          description: 'Description  of  Agarbatti',
+          image: '/agarabathi.jpg'
+        },
+        {
+          id: 2,
+          name: 'Product 2',
+          description: 'Description of Agarbatti',
+          image: '/agarabathi2.jpeg'
+        },
+        {
+          id: 1,
+          name: 'Product 1',
+          description: 'Description  of  Agarbatti',
+          image: '/agarabathi.jpg'
+        },
+        {
+          id: 2,
+          name: 'Product 2',
+          description: 'Description of  Agarbatti',
+          image: 'agarabathi2.jpeg'
+        },
+         {
+          id: 1,
+          name: 'Product 1',
+          description: 'Description  of  Agarbatti',
+          image: 'agarabathi2.jpeg'
+        },
+        {
+          id: 2,
+          name: 'Product 2',
+          description: 'Description of  Agarbatti',
+          image: 'agarabathi2.jpeg'
+        },
+        // Add more products as needed
+      ]
+    }),
+  }
+</script>
+
+<style scoped>
+.description{
+  font-size: x-small;
+}
+
+.v-card-text {
+   
+    padding: .5rem;
+   
+}
+</style>
