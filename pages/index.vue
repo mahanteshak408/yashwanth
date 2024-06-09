@@ -1,109 +1,151 @@
 <template>
-  <v-sheet
-    class="mx-auto"
-    elevation="8"
-    max-width="800"
-  >
-    <v-slide-group
-      v-model="model"
-      class="pa-4"
-      selected-class="bg-success"
-      show-arrows
-    >
-      <v-slide-group-item
-        v-for="product in products"
-        :key="product"
-        v-slot="{ isSelected, toggle, selectedClass }"
+  <div class="">
+    <v-sheet class="mx-auto" elevation="8" max-width="800">
+      <v-slide-group
+        v-model="model"
+        class="pa-4"
+        selected-class="bg-success"
+        show-arrows
       >
-        <v-card
-          :class="['ma-4', selectedClass]"
-          color="grey-lighten-1"
-          height="200"
-          width="100"
-          @click="toggle"
+        <v-slide-group-item
+          v-for="product in products"
+          :key="product"
+          v-slot="{ isSelected, toggle, selectedClass }"
         >
-        <v-img
-            :src="product.image"
-            height="50"
-            class="mt-2"
-            contain
-          ></v-img>
-        <v-card-text class="">
-          {{ product.name }}
-           <span class="description">{{ product.description }}</span> 
-          </v-card-text>
-          <v-card-actions>
-            <v-btn color="primary" 
-                icon="mdi mdi-cart-outline" ></v-btn>
-                <!-- @click="addToCart(product)" -->
-          </v-card-actions>
-          <div class="d-flex fill-height align-center justify-center">
-            <v-scale-transition>
-              
-              
-            </v-scale-transition>
-          </div>
-        </v-card>
-      </v-slide-group-item>
-    </v-slide-group>
-  </v-sheet>
+   
+        <v-avatar icon="$vuetify" :image="product.image" size="80"></v-avatar>
+        </v-slide-group-item>
+      </v-slide-group>
+    </v-sheet>
+
+    <v-sheet class="mx-auto" elevation="8" max-width="800">
+      <v-slide-group
+        v-model="model"
+      class="pa-4"
+  
+      >
+        <v-slide-group-item
+          v-for="product in productsImages"
+          :key="product"
+          v-slot="{ isSelected, toggle, selectedClass }"
+        >
+         
+            <v-img :src="product.image" height="200"     width="100%" cover></v-img>
+    
+        </v-slide-group-item>
+      </v-slide-group>
+    </v-sheet>
+
+    <v-sheet elevation="8" >
+      <v-slide-group
+        v-model="model"
+        class="pa-4"
+        selected-class="bg-success"
+        show-arrows
+      >
+        <v-slide-group-item
+          v-for="product in products"
+          :key="product"
+          v-slot="{ isSelected, toggle, selectedClass }"
+        >
+          <v-card
+            :class="['ma-4', selectedClass]"
+            color="grey-lighten-1"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-img :src="product.image" height="100" cover></v-img>
+            <v-card-text class="">
+              {{ product.name }}
+              <span class="description">{{ product.description }}</span>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="primary" icon="mdi mdi-cart-outline"></v-btn>
+              <!-- @click="addToCart(product)" -->
+            </v-card-actions>
+            <div class="d-flex fill-height align-center justify-center">
+              <v-scale-transition> </v-scale-transition>
+            </div>
+          </v-card>
+        </v-slide-group-item>
+      </v-slide-group>
+    </v-sheet>
+  </div>
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      model: null,
-      products: [
-        {
-          id: 1,
-          name: 'Product 1',
-          description: 'Description  of  Agarbatti',
-          image: '/agarabathi.jpg'
-        },
-        {
-          id: 2,
-          name: 'Product 2',
-          description: 'Description of Agarbatti',
-          image: '/agarabathi2.jpeg'
-        },
-        {
-          id: 1,
-          name: 'Product 1',
-          description: 'Description  of  Agarbatti',
-          image: '/agarabathi.jpg'
-        },
-        {
-          id: 2,
-          name: 'Product 2',
-          description: 'Description of  Agarbatti',
-          image: 'agarabathi2.jpeg'
-        },
-         {
-          id: 1,
-          name: 'Product 1',
-          description: 'Description  of  Agarbatti',
-          image: 'agarabathi2.jpeg'
-        },
-        {
-          id: 2,
-          name: 'Product 2',
-          description: 'Description of  Agarbatti',
-          image: 'agarabathi2.jpeg'
-        },
-        // Add more products as needed
-      ]
-    }),
-  }
+export default {
+  data: () => ({
+    model: null,
+    productsImages:[ {
+        id: 1,
+        name: "Product 1",
+        description: "Description  of  Agarbatti",
+        image: "/image.jpeg",
+      },
+      {
+        id: 2,
+        name: "Product 2",
+        description: "Description of Agarbatti",
+        image: "/image1.jpeg",
+      },
+      {
+        id: 3,
+        name: "Product 2",
+        description: "Description of Agarbatti",
+        image: "/image1.jpeg",
+      },
+     ],
+    products: [
+      {
+        id: 1,
+        name: "Product 1",
+        description: "Description  of  Agarbatti",
+        image: "/agarabathi.jpg",
+      },
+      {
+        id: 2,
+        name: "Product 2",
+        description: "Description of Agarbatti",
+        image: "/agarabathi2.jpeg",
+      },
+      {
+        id: 1,
+        name: "Product 1",
+        description: "Description  of  Agarbatti",
+        image: "/agarabathi.jpg",
+      },
+      {
+        id: 2,
+        name: "Product 2",
+        description: "Description of  Agarbatti",
+        image: "agarabathi2.jpeg",
+      },
+      {
+        id: 1,
+        name: "Product 1",
+        description: "Description  of  Agarbatti",
+        image: "agarabathi2.jpeg",
+      },
+      {
+        id: 2,
+        name: "Product 2",
+        description: "Description of  Agarbatti",
+        image: "agarabathi2.jpeg",
+      },
+      // Add more products as needed
+    ],
+  }),
+};
 </script>
 
 <style scoped>
-.description{
+.description {
   font-size: x-small;
 }
 
 .v-card-text {
-   
-    padding: .5rem;
-   
+  padding: 0.5rem;
 }
 </style>

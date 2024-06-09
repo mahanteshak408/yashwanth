@@ -30,13 +30,15 @@
         ></v-list>
       </v-navigation-drawer>
 
-      <v-main style="height: 500px;">
+      <v-main class="h-auto">
        <slot/>
+       <AppFooter />
       </v-main>
+
+      
     </v-layout>
   </v-card>
 </template>
-
 
 <script>
   export default {
