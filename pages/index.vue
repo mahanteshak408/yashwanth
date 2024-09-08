@@ -2,8 +2,8 @@
   <div class="">
     <v-sheet class="mx-auto" elevation="8" max-width="800">
       <v-slide-group
-        v-model="model"
-        class="pa-4"
+        v-model="modelFirst"
+        class="py-2"
         selected-class="bg-success"
         show-arrows
       >
@@ -20,8 +20,8 @@
 
     <v-sheet class="mx-auto" elevation="8" max-width="800">
       <v-slide-group
-        v-model="model"
-      class="pa-4"
+        v-model="modelImage"
+      class="py-2"
   
       >
         <v-slide-group-item
@@ -39,7 +39,7 @@
     <v-sheet elevation="8" >
       <v-slide-group
         v-model="model"
-        class="pa-4"
+        class="py-2"
         selected-class="bg-success"
         show-arrows
       >
@@ -49,7 +49,7 @@
           v-slot="{ isSelected, toggle, selectedClass }"
         >
           <v-card
-            :class="['ma-4', selectedClass]"
+            :class="['ma-2', selectedClass]"
             color="grey-lighten-1"
             height="200"
             width="100"
@@ -78,6 +78,9 @@
 export default {
   data: () => ({
     model: null,
+    modelImage:null,
+    modelFirst:null,
+    
     productsImages:[ {
         id: 1,
         name: "Product 1",
@@ -147,5 +150,21 @@ export default {
 
 .v-card-text {
   padding: 0.5rem;
+}
+
+:deep(.v-slide-group__prev ){
+   
+    min-width: 10px !important;
+
+}
+:deep(.v-slide-group__next)
+{
+   
+   min-width: 10px !important;
+
+}
+:deep(.bg-grey-lighten-1 ){
+    background-color: #52cce6e0 !important;
+    color: #0d0c0c !important;
 }
 </style>
