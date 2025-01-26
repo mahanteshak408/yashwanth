@@ -51,7 +51,7 @@
           <v-card
             :class="['ma-2', selectedClass]"
             color="grey-lighten-1"
-            height="200"
+            height="150"
             width="100"
             @click="toggle"
           >
@@ -64,7 +64,7 @@
               <v-btn color="primary" icon="mdi mdi-cart-outline"></v-btn>
               <!-- @click="addToCart(product)" -->
             </v-card-actions>
-            <div class="d-flex fill-height align-center justify-center">
+            <div class="d-flex h-24 align-center justify-center">
               <v-scale-transition> </v-scale-transition>
             </div>
           </v-card>
@@ -91,14 +91,36 @@ export default {
         id: 2,
         name: "Product 2",
         description: "Description of Agarbatti",
-        image: "/image1.jpeg",
+        image: "/scroll1.jpeg",
       },
       {
         id: 3,
         name: "Product 2",
         description: "Description of Agarbatti",
-        image: "/image1.jpeg",
+        image: "/scroll4.jpeg",
       },
+      {
+    id: 4,
+    name: "Product 2",
+    description: "Description of Agarbatti",
+    image: "/scroll.jpeg",
+  },  {
+    id: 5,
+    name: "Product 2",
+    description: "Description of Agarbatti",
+    image: "/scroll1.jpeg",
+  },
+  {
+    id: 6,
+    name: "Product 2",
+    description: "Description of Agarbatti",
+    image: "/scroll3.jpeg",
+  },  {
+    id: 7,
+    name: "Product 2",
+    description: "Description of Agarbatti",
+    image: "/scroll4.jpeg",
+  },
      ],
     products: [
       {
@@ -164,7 +186,7 @@ export default {
 
 }
 :deep(.bg-grey-lighten-1 ){
-    background-color: #52cce6e0 !important;
+  background-color: #94bda0e0 !important;
     color: #0d0c0c !important;
 }
 </style>
