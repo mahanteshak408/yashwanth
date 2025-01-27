@@ -30,7 +30,7 @@
         ></v-list>
       </v-navigation-drawer> -->
 
-      <v-main class="h-auto">
+      <v-main class="">
        <slot/>
        <AppFooter />
       </v-main>
@@ -42,7 +42,8 @@
 
 <script>
   export default {
-    data: () => ({
+    data(){
+      return{
       drawer: false,
       group: null,
       items: [
@@ -63,7 +64,8 @@
           value: 'buzz',
         },
       ],
-    }),
+    }
+  },
 
     watch: {
       group () {

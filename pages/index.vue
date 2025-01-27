@@ -76,7 +76,8 @@
 
 <script>
 export default {
-  data: () => ({
+  data (){
+    return{
     model: null,
     modelImage:null,
     modelFirst:null,
@@ -161,7 +162,8 @@ export default {
       },
       // Add more products as needed
     ],
-  }),
+  }
+},
 };
 </script>
 

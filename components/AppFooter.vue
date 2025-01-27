@@ -1,6 +1,7 @@
 <template>
     <v-footer
-      class="bg-indigo-lighten-1 text-center "
+    class="bg-indigo-lighten-1 text-center d-flex flex-column"
+ 
     >
     <div class="flex flex-column">
     <span v-for="icon in icons" :key="icon.id" class="flex flex-column">  
@@ -32,7 +33,8 @@
 
   <script>
   export default {
-    data: () => ({
+    data(){
+      return {
       icons: [
        { id:1,icon:'mdi-facebook',link:"https://www.facebook.com/share/1ALLp5jTsr/?mibextid=qi2Omg"},
         {id:2,icon:'mdi-twitter',link:"https://www.threads.net/@naksh.atra860"},
@@ -41,7 +43,8 @@
         {id:4,icon:'mdi-instagram',link:"https://www.instagram.com/naksh.atra860/profilecard/?igsh=MTJnY3M0eHNwOHY4aQ=="},
       ],
     
-     }),
+     }
+    },
      methods:{
       openUrl(icon){
         window.open(icon.link, '_blank');
