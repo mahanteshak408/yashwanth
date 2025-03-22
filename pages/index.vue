@@ -1,5 +1,6 @@
 <template>
   <div class="">
+    <!-- First slide group -->
     <v-sheet class="mx-auto" elevation="8" max-width="800">
       <v-slide-group
         v-model="modelFirst"
@@ -9,34 +10,29 @@
       >
         <v-slide-group-item
           v-for="product in products"
-          :key="product"
+          :key="product.id"
           v-slot="{ isSelected, toggle, selectedClass }"
         >
-   
-        <v-avatar icon="$vuetify" :image="product.image" size="80"></v-avatar>
+          <v-avatar icon="$vuetify" :image="product.image" size="80"></v-avatar>
         </v-slide-group-item>
       </v-slide-group>
     </v-sheet>
 
+    <!-- Second slide group -->
     <v-sheet class="mx-auto" elevation="8" max-width="800">
-      <v-slide-group
-        v-model="modelImage"
-      class="py-2"
-  
-      >
+      <v-slide-group v-model="modelImage" class="py-2">
         <v-slide-group-item
           v-for="product in productsImages"
-          :key="product"
+          :key="product.id"
           v-slot="{ isSelected, toggle, selectedClass }"
         >
-         
-            <v-img :src="product.image" height="200"     width="100%" cover></v-img>
-    
+          <v-img :src="product.image" height="200" width="100%" cover></v-img>
         </v-slide-group-item>
       </v-slide-group>
     </v-sheet>
 
-    <v-sheet elevation="8" >
+    <!-- Third slide group -->
+    <v-sheet elevation="8">
       <v-slide-group
         v-model="model"
         class="py-2"
@@ -45,7 +41,7 @@
       >
         <v-slide-group-item
           v-for="product in products"
-          :key="product"
+          :key="product.id"
           v-slot="{ isSelected, toggle, selectedClass }"
         >
           <v-card
@@ -62,7 +58,6 @@
             </v-card-text>
             <v-card-actions>
               <v-btn color="primary" icon="mdi mdi-cart-outline"></v-btn>
-              <!-- @click="addToCart(product)" -->
             </v-card-actions>
             <div class="d-flex h-24 align-center justify-center">
               <v-scale-transition> </v-scale-transition>
@@ -76,94 +71,96 @@
 
 <script>
 export default {
-  data (){
-    return{
-    model: null,
-    modelImage:null,
-    modelFirst:null,
-    
-    productsImages:[ {
-        id: 1,
-        name: "Product 1",
-        description: "Description  of  Agarbatti",
-        image: "/image.jpeg",
-      },
-      {
-        id: 2,
-        name: "Product 2",
-        description: "Description of Agarbatti",
-        image: "/scroll1.jpeg",
-      },
-      {
-        id: 3,
-        name: "Product 2",
-        description: "Description of Agarbatti",
-        image: "/scroll4.jpeg",
-      },
-      {
-    id: 4,
-    name: "Product 2",
-    description: "Description of Agarbatti",
-    image: "/scroll.jpeg",
-  },  {
-    id: 5,
-    name: "Product 2",
-    description: "Description of Agarbatti",
-    image: "/scroll1.jpeg",
+  data() {
+    return {
+      model: null,
+      modelImage: null,
+      modelFirst: null,
+
+      productsImages: [
+        {
+          id: 1,
+          name: 'Product 1',
+          description: 'Description  of  Agarbatti',
+          image: '/image.jpeg',
+        },
+        {
+          id: 2,
+          name: 'Product 2',
+          description: 'Description of Agarbatti',
+          image: '/scroll1.jpeg',
+        },
+        {
+          id: 3,
+          name: 'Product 3',
+          description: 'Description of Agarbatti',
+          image: '/scroll4.jpeg',
+        },
+        {
+          id: 4,
+          name: 'Product 4',
+          description: 'Description of Agarbatti',
+          image: '/scroll.jpeg',
+        },
+        {
+          id: 5,
+          name: 'Product 5',
+          description: 'Description of Agarbatti',
+          image: '/scroll1.jpeg',
+        },
+        {
+          id: 6,
+          name: 'Product 6',
+          description: 'Description of Agarbatti',
+          image: '/scroll3.jpeg',
+        },
+        {
+          id: 7,
+          name: 'Product 7',
+          description: 'Description of Agarbatti',
+          image: '/scroll4.jpeg',
+        },
+      ],
+      products: [
+        {
+          id: 1,
+          name: 'Product 1  ',
+          description: 'Description  of  Agarbatti',
+          image: '/agarabathi.jpg',
+        },
+        {
+          id: 2,
+          name: 'Product 2',
+          description: 'Description of Agarbatti',
+          image: '/agarabathi2.jpeg',
+        },
+        {
+          id: 3,
+          name: 'Product 3',
+          description: 'Description  of  Agarbatti',
+          image: '/agarabathi.jpg',
+        },
+        {
+          id: 4,
+          name: 'Product 4',
+          description: 'Description of  Agarbatti',
+          image: '/agarabathi2.jpeg',
+        },
+        {
+          id: 5,
+          name: 'Product 5',
+          description: 'Description  of  Agarbatti',
+          image: '/agarabathi2.jpeg',
+        },
+        {
+          id: 6,
+          name: 'Product 6',
+          description: 'Description of  Agarbatti',
+          image: '/agarabathi2.jpeg',
+        },
+      ],
+    };
   },
-  {
-    id: 6,
-    name: "Product 2",
-    description: "Description of Agarbatti",
-    image: "/scroll3.jpeg",
-  },  {
-    id: 7,
-    name: "Product 2",
-    description: "Description of Agarbatti",
-    image: "/scroll4.jpeg",
-  },
-     ],
-    products: [
-      {
-        id: 1,
-        name: "Product 1",
-        description: "Description  of  Agarbatti",
-        image: "/agarabathi.jpg",
-      },
-      {
-        id: 2,
-        name: "Product 2",
-        description: "Description of Agarbatti",
-        image: "/agarabathi2.jpeg",
-      },
-      {
-        id: 1,
-        name: "Product 1",
-        description: "Description  of  Agarbatti",
-        image: "/agarabathi.jpg",
-      },
-      {
-        id: 2,
-        name: "Product 2",
-        description: "Description of  Agarbatti",
-        image: "agarabathi2.jpeg",
-      },
-      {
-        id: 1,
-        name: "Product 1",
-        description: "Description  of  Agarbatti",
-        image: "agarabathi2.jpeg",
-      },
-      {
-        id: 2,
-        name: "Product 2",
-        description: "Description of  Agarbatti",
-        image: "agarabathi2.jpeg",
-      },
-      // Add more products as needed
-    ],
-  }
-},
 };
 </script>
 
@@ -176,19 +173,14 @@ export default {
   padding: 0.5rem;
 }
 
-:deep(.v-slide-group__prev ){
-   
-    min-width: 10px !important;
-
+:deep(.v-slide-group__prev) {
+  min-width: 10px !important;
 }
-:deep(.v-slide-group__next)
-{
-   
-   min-width: 10px !important;
-
+:deep(.v-slide-group__next) {
+  min-width: 10px !important;
 }
-:deep(.bg-grey-lighten-1 ){
+:deep(.bg-grey-lighten-1) {
   background-color: #94bda0e0 !important;
-    color: #0d0c0c !important;
+  color: #0d0c0c !important;
 }
 </style>
